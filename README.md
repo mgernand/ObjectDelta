@@ -1,2 +1,5 @@
-# ObjectDiff
-A libary that allows to perform a diff of two objects.
+# ObjectDelta
+
+A libary that creates a delta of two object instaces.
+
+
