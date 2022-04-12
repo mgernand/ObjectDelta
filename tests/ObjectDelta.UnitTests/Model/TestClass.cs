@@ -1,6 +1,6 @@
 ﻿namespace ObjectDelta.UnitTests.Model
 {
-	public class TestObject
+	public class TestClass
 	{
 		public string String { get; set; }
 	}
