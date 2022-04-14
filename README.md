@@ -3,8 +3,13 @@
 A libary that creates a delta of two object instaces.
 
 The library is heavily inspired by a blog post of [Daniel Wertheim](https://github.com/danielwertheim)  about
-producing a delta of two objects of the same type using this nice library [Structurizer](https://github.com/danielwertheim/structurizer).
-I basically took what he proposed as a solution, structured and polished it and created the available set of unit tests.
+producing a delta of two objects of the same type using his nice library [Structurizer](https://github.com/danielwertheim/structurizer).
+Unfortunately [Structurizer](https://github.com/danielwertheim/structurizer) will not provide index information 
+for properties with a ```null``` value, the property of a collection and for ```null``` collection items.
+This information is needed to be able to record object changes from ```null``` to a value and vice versa. 
+I decided to hide the indexing behind another abstraction and to implement it using a modified version of
+the [Structurizer](https://github.com/danielwertheim/structurizer) library. If [Structurizer](https://github.com/danielwertheim/structurizer)
+supports this in the future I will switch to the NuGet packaged version.
 
 # Usage
 

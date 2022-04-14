@@ -9,7 +9,14 @@
 		<PackageReference Include="Fluxera.Guards" Version="6.0.11" />
 		<PackageReference Include="Fluxera.Utilities" Version="6.0.12" />
 		<PackageReference Include="JetBrains.Annotations" Version="2021.3.0" />
-		<PackageReference Include="Structurizer" Version="4.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Schema\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\ObjectStructure\ObjectStructure.csproj" />
 	</ItemGroup>
 
 </Project>
