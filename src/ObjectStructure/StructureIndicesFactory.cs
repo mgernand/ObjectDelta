@@ -16,7 +16,10 @@
 			{
 				StructureIndexValue[] values = indexAccessor.GetValues(item);
 
-				// TODO
+				foreach(StructureIndexValue value in values)
+				{
+					result.Add(new StructureIndex(indexAccessor.Name, value.Path, indexAccessor.Type, value.Value));
+				}
 			}
 
 			return result.ToArray();

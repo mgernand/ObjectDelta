@@ -11,16 +11,16 @@
 	[DebuggerDisplay("ObjectType={ObjectType.Name}, ChangeCount={PropertyDeltas.Length}")]
 	public sealed class ObjectDelta<T>
 	{
-		public ObjectDelta(T oldObject, T newObject, PropertyDelta[] propertyPropertyDeltas)
+		public ObjectDelta(T oldObject, T newObject, PropertyDelta[] propertyDeltas)
 		{
 			Guard.Against.Null(oldObject, nameof(oldObject));
 			Guard.Against.Null(newObject, nameof(newObject));
 
-			propertyPropertyDeltas ??= Array.Empty<PropertyDelta>();
+			propertyDeltas ??= Array.Empty<PropertyDelta>();
 
 			this.OldObject = oldObject;
 			this.NewObject = newObject;
-			this.PropertyDeltas = propertyPropertyDeltas;
+			this.PropertyDeltas = propertyDeltas;
 		}
 
 		public Type ObjectType => typeof(T);

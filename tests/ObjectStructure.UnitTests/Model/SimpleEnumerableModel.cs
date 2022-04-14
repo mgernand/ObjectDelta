@@ -2,7 +2,7 @@
 {
 	using System.Collections.Generic;
 
-	public class SingleSimpleEnumerableProperty
+	public class SimpleEnumerableModel
 	{
 		public IList<string> ListProperty { get; set; }
 	}

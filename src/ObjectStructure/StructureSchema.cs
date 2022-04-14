@@ -15,10 +15,16 @@
 			this.IndexAccessors = indexAccessors ?? Array.Empty<IndexAccessor>();
 		}
 
+		public string Name => this.StructureType.Name;
+
 		public StructureType StructureType { get; }
 
-		public IndexAccessor[] IndexAccessors { get; }
+		internal IndexAccessor[] IndexAccessors { get; }
 
-		public string Name => this.StructureType.Name;
+		/// <inheritdoc />
+		public override string ToString()
+		{
+			return this.StructureType.ToString();
+		}
 	}
 }

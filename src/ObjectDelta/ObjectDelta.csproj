@@ -12,10 +12,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Schema\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <ProjectReference Include="..\ObjectStructure\ObjectStructure.csproj" />
 	</ItemGroup>
 

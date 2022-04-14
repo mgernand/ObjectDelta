@@ -1,6 +1,6 @@
 ﻿namespace ObjectStructure.UnitTests.Model
 {
-	public class SingleStringProperty
+	public class SimpleModel
 	{
 		public string StringProperty { get; set; }
 	}

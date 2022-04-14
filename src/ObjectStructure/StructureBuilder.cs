@@ -29,7 +29,16 @@
 			StructureSchema structureSchema = this.schemaFactory.CreateSchema(structureType);
 
 			StructureIndex[] structureIndices = this.CreateIndices(structureSchema, item);
-			return new Structure(structureSchema.Name, structureIndices);
+			return new Structure(structureSchema, structureIndices);
+		}
+
+		/// <inheritdoc />
+		public Structure CreateStructure<T>()
+		{
+			StructureType structureType = this.structureTypeFactory.CreateType<T>();
+			StructureSchema structureSchema = this.schemaFactory.CreateSchema(structureType);
+
+			return new Structure(structureSchema);
 		}
 
 		private StructureIndex[] CreateIndices<T>(StructureSchema structureSchema, T item)

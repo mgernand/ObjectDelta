@@ -1,9 +1,11 @@
-﻿namespace ObjectDelta.UnitTests
-{
-	using NUnit.Framework;
+﻿//namespace ObjectDelta.UnitTests
+//{
+//	using NUnit.Framework;
 
-	[TestFixture]
-	public class CollectionTests
-	{
-	}
-}
+//	[TestFixture]
+//	public class CollectionTests
+//	{
+//	}
+//}
+
+

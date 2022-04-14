@@ -1,22 +1,29 @@
 ﻿namespace ObjectStructure
 {
-	using System;
 	using Fluxera.Guards;
 	using JetBrains.Annotations;
 
 	[PublicAPI]
 	public sealed class Structure
 	{
-		internal Structure(string name, StructureIndex[] indices)
+		internal Structure(StructureSchema schema, StructureIndex[] indices = null)
 		{
-			Guard.Against.NullOrWhiteSpace(name, nameof(name));
+			Guard.Against.Null(schema, nameof(schema));
 
-			this.Name = name;
-			this.Indices = indices ?? Array.Empty<StructureIndex>();
+			this.Schema = schema;
+			this.Indices = new StructureIndices(indices);
 		}
 
-		public string Name { get; }
+		public string Name => this.Schema.Name;
 
-		public StructureIndex[] Indices { get; }
+		public StructureSchema Schema { get; }
+
+		public StructureIndices Indices { get; }
+
+		/// <inheritdoc />
+		public override string ToString()
+		{
+			return this.Schema.Name;
+		}
 	}
 }

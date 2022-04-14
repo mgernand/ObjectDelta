@@ -12,9 +12,9 @@
 		[Test]
 		public void ShouldCreateStructureTypeForComplexEnumerableProperty()
 		{
-			Type type = typeof(SingleComplexEnumerableProperty);
+			Type type = typeof(ComplexEnumerableModel);
 			IStructureTypeFactory factory = new StructureTypeFactory();
-			StructureType structureType = factory.CreateType<SingleComplexEnumerableProperty>();
+			StructureType structureType = factory.CreateType<ComplexEnumerableModel>();
 
 			structureType.Should().NotBeNull();
 
@@ -23,7 +23,7 @@
 			structureType.Properties.Should().NotBeNullOrEmpty();
 			structureType.Properties.Should().HaveCount(2);
 
-			structureType.Properties[0].Type.Should().Be(typeof(IList<Complex>));
+			structureType.Properties[0].Type.Should().Be(typeof(IList<ComplexType>));
 			structureType.Properties[0].Name.Should().Be("ListProperty");
 			structureType.Properties[0].Path.Should().Be("ListProperty");
 
@@ -42,9 +42,9 @@
 		[Test]
 		public void ShouldCreateStructureTypeForComplexProperty()
 		{
-			Type type = typeof(SingleComplexProperty);
+			Type type = typeof(ComplexModel);
 			IStructureTypeFactory factory = new StructureTypeFactory();
-			StructureType structureType = factory.CreateType<SingleComplexProperty>();
+			StructureType structureType = factory.CreateType<ComplexModel>();
 
 			structureType.Should().NotBeNull();
 
@@ -53,7 +53,7 @@
 			structureType.Properties.Should().NotBeNullOrEmpty();
 			structureType.Properties.Should().HaveCount(2);
 
-			structureType.Properties[0].Type.Should().Be(typeof(Complex));
+			structureType.Properties[0].Type.Should().Be(typeof(ComplexType));
 			structureType.Properties[0].Name.Should().Be("ComplexProperty");
 			structureType.Properties[0].Path.Should().Be("ComplexProperty");
 
@@ -72,9 +72,9 @@
 		[Test]
 		public void ShouldCreateStructureTypeForSimpleEnumerableProperty()
 		{
-			Type type = typeof(SingleSimpleEnumerableProperty);
+			Type type = typeof(SimpleEnumerableModel);
 			IStructureTypeFactory factory = new StructureTypeFactory();
-			StructureType structureType = factory.CreateType<SingleSimpleEnumerableProperty>();
+			StructureType structureType = factory.CreateType<SimpleEnumerableModel>();
 
 			structureType.Should().NotBeNull();
 
@@ -84,8 +84,8 @@
 			structureType.Properties.Should().HaveCount(1);
 
 			structureType.Properties[0].Type.Should().Be(typeof(IList<string>));
-			structureType.Properties[0].Name.Should().Be(nameof(SingleSimpleEnumerableProperty.ListProperty));
-			structureType.Properties[0].Path.Should().Be(nameof(SingleSimpleEnumerableProperty.ListProperty));
+			structureType.Properties[0].Name.Should().Be(nameof(SimpleEnumerableModel.ListProperty));
+			structureType.Properties[0].Path.Should().Be(nameof(SimpleEnumerableModel.ListProperty));
 
 			//structureType.Properties[0].Parent.Should().BeNull();
 			//structureType.Properties[0].Attributes.Should().HaveCount(0);
@@ -98,9 +98,9 @@
 		[Test]
 		public void ShouldCreateStructureTypeForSimpleProperty()
 		{
-			Type type = typeof(SingleStringProperty);
+			Type type = typeof(SimpleModel);
 			IStructureTypeFactory factory = new StructureTypeFactory();
-			StructureType structureType = factory.CreateType<SingleStringProperty>();
+			StructureType structureType = factory.CreateType<SimpleModel>();
 
 			structureType.Should().NotBeNull();
 
@@ -110,8 +110,8 @@
 			structureType.Properties.Should().HaveCount(1);
 
 			structureType.Properties[0].Type.Should().Be(typeof(string));
-			structureType.Properties[0].Name.Should().Be(nameof(SingleStringProperty.StringProperty));
-			structureType.Properties[0].Path.Should().Be(nameof(SingleStringProperty.StringProperty));
+			structureType.Properties[0].Name.Should().Be(nameof(SimpleModel.StringProperty));
+			structureType.Properties[0].Path.Should().Be(nameof(SimpleModel.StringProperty));
 			//structureType.Properties[0].Parent.Should().BeNull();
 			//structureType.Properties[0].Attributes.Should().HaveCount(0);
 			//structureType.Properties[0].IsRootProperty.Should().BeTrue();

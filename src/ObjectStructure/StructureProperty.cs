@@ -16,6 +16,8 @@
 			this.getter = getter;
 
 			this.IsRootProperty = info.Parent == null;
+			this.IsSimple = this.Type.IsSimpleType();
+			this.IsComplex = !this.Type.IsSimpleType() && !this.Type.IsEnumerableType();
 			this.IsEnumerable = !this.Type.IsSimpleType() && this.Type.IsEnumerableType();
 			this.IsElement = (this.Parent != null) && (this.Parent.IsElement || this.Parent.IsEnumerable);
 			this.ElementType = this.IsEnumerable ? this.Type.GetEnumerableElementType() : null;
@@ -32,6 +34,10 @@
 
 		public bool IsRootProperty { get; }
 
+		public bool IsSimple { get; }
+
+		public bool IsComplex { get; }
+
 		public bool IsEnumerable { get; }
 
 		public bool IsElement { get; }
@@ -43,6 +49,12 @@
 		public object GetValue(object obj)
 		{
 			return this.getter.Invoke(obj);
+		}
+
+		/// <inheritdoc />
+		public override string ToString()
+		{
+			return this.Path;
 		}
 	}
 }

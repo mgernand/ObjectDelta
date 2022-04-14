@@ -1,6 +1,7 @@
 ﻿namespace ObjectStructure
 {
 	using System;
+	using System.Text;
 	using Fluxera.Guards;
 	using JetBrains.Annotations;
 
@@ -35,5 +36,18 @@
 		///     Gets the properties of the type.
 		/// </summary>
 		public StructureProperty[] Properties { get; }
+
+		/// <inheritdoc />
+		public override string ToString()
+		{
+			StringBuilder builder = new StringBuilder();
+
+			foreach(StructureProperty property in this.Properties)
+			{
+				builder.AppendLine(property.ToString());
+			}
+
+			return builder.ToString();
+		}
 	}
 }

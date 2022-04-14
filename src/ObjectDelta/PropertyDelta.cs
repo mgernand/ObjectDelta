@@ -11,14 +11,15 @@
 	{
 		public PropertyDelta(Type dataType, string name, string path, object oldValue, object newValue)
 		{
-			this.DataType = Guard.Against.Null(dataType, nameof(dataType));
+			this.Type = Guard.Against.Null(dataType, nameof(dataType));
 			this.Name = Guard.Against.NullOrWhiteSpace(name, nameof(name));
 			this.Path = Guard.Against.NullOrWhiteSpace(path, nameof(path));
-			this.OldValue = Guard.Against.Null(oldValue, nameof(oldValue));
-			this.NewValue = Guard.Against.Null(newValue, nameof(newValue));
+
+			this.OldValue = oldValue;
+			this.NewValue = newValue;
 		}
 
-		public Type DataType { get; }
+		public Type Type { get; }
 
 		public string Name { get; }
 
@@ -31,7 +32,7 @@
 		/// <inheritdoc />
 		public override string ToString()
 		{
-			return @$"DataType={this.DataType.Name}, Name={this.Name}, Path={this.Path}, OldValue={this.OldValue}, NewValue={this.NewValue}";
+			return @$"Type={this.Type.Name}, Name={this.Name}, Path={this.Path}, OldValue={this.OldValue}, NewValue={this.NewValue}";
 		}
 	}
 }
