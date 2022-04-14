@@ -1,4 +1,4 @@
-﻿namespace ObjectDelta.UnitTests.Model
+﻿namespace ConsoleApp1
 {
 	public class Customer
 	{
