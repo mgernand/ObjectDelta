@@ -1,5 +1,7 @@
 ﻿namespace ConsoleApp1
 {
+	using System;
+
 	internal static class Program
 	{
 		public static void Main(string[] args)
@@ -25,7 +27,7 @@
 			//Console.WriteLine(structure.Schema);
 			//Console.WriteLine();
 			//Console.WriteLine(structure.Indices);
-			//Console.WriteLine();
+			Console.WriteLine();
 		}
 	}
 }

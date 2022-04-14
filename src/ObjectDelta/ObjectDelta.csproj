@@ -2,12 +2,45 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.1</TargetFramework>
+		<LangVersion>latest</LangVersion>
 		<Nullable>disable</Nullable>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<IncludeSymbols>false</IncludeSymbols>
+		<Copyright>Copyright © 2022 Matthias Gernand. All rights reserved.</Copyright>
+		<Version>1.0.0</Version>
+		<AssemblyVersion>1.0.0</AssemblyVersion>
+		<FileVersion>1.0.0</FileVersion>
+		<Authors>Matthias Gernand</Authors>
+		<Description>A libary that creates a delta of two object instaces.</Description>
+		<NeutralLanguage>en</NeutralLanguage>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageProjectUrl>https://github.com/mgernand/ObjectDelta</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/mgernand/ObjectDelta</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>object;delta;diff;difference</PackageTags>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageIcon>icon.png</PackageIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Fluxera.Guards" Version="6.0.11" />
-		<PackageReference Include="Fluxera.Utilities" Version="6.0.12" />
+		<None Include="..\..\..\Extensions.Logging.Mock\icon.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Fluxera.Guards" Version="6.0.12" />
+		<PackageReference Include="Fluxera.Utilities" Version="6.0.13" />
 		<PackageReference Include="JetBrains.Annotations" Version="2021.3.0" />
 	</ItemGroup>
 
