@@ -10,7 +10,6 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\src\ObjectDelta\ObjectDelta.csproj" />
-		<ProjectReference Include="..\..\src\ObjectStructure\ObjectStructure.csproj" />
 	</ItemGroup>
 
 </Project>
