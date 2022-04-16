@@ -1,15 +1,14 @@
 # ObjectDelta
 
-A libary that creates a delta of two object instaces.
+A libary that creates a delta of two object instances.
 
-The library is heavily inspired by a blog post of [Daniel Wertheim](https://github.com/danielwertheim)  about
-producing a delta of two objects of the same type using his nice library [Structurizer](https://github.com/danielwertheim/structurizer).
+The library is inspired by a blog post of [Daniel Wertheim](https://github.com/danielwertheim) about
+producing a delta of two objects of the same type using the library [Structurizer](https://github.com/danielwertheim/structurizer).
 Unfortunately [Structurizer](https://github.com/danielwertheim/structurizer) will not provide index information 
 for properties with a ```null``` value, the property of a collection and for ```null``` collection items.
 This information is needed to be able to record object changes from ```null``` to a value and vice versa. 
-I decided to hide the indexing behind another abstraction and to implement it using a modified version of
-the [Structurizer](https://github.com/danielwertheim/structurizer) library. If [Structurizer](https://github.com/danielwertheim/structurizer)
-supports this in the future I will switch to the NuGet packaged version.
+I decided to create a library based on [Structurizer](https://github.com/danielwertheim/structurizer) that fits 
+my needs for the delta creation.
 
 # Usage
 
@@ -44,8 +43,7 @@ Customer second = new Customer
 	Tags = new string[] { "detective", "smart", "addict" }
 };
 
-ObjectComparer comparer = new ObjectComparer();
-ObjectDelta<Customer> result = comparer.Compare(first, second);
+ObjectDelta<Customer> result = ObjectComparer.Compare(first, second);
 ```
 
 The resulting ```ObjectDelta<Customer>``` provides a flat list containing the deltas for every property,
@@ -54,11 +52,11 @@ inclusing nested properties of complex types (like the ```Address```) and collee
 The output of ```ToString()``` of the result of operation above:
 
 ```plain
-[
-	Name=LastName, Path=LastName, OldValue=Olmes, NewValue=Holmes, DataType=String, DataTypeCode=String, IsNumeric=False,
-	Name=Address.Number, Path=Address.Number, OldValue=900, NewValue=221b, DataType=String, DataTypeCode=String, IsNumeric=False,
-	Name=Tags, Path=Tags[1], OldValue=smart, NewValue=addict, DataType=String[], DataTypeCode=String, IsNumeric=False
-]
+LastName (Olmes => Holmes)
+Address (ConsoleApp1.Address => ConsoleApp1.Address)
+Address.Number (900 => 221b)
+Tags (System.String[] => System.String[])
+Tags[1] (addict => genius)
 ```
 
 ## References

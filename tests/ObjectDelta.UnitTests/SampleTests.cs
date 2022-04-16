@@ -95,9 +95,7 @@
 				Tags = new string[] { "detective", "addict", "smart" }
 			};
 
-			ObjectComparer comparer = new ObjectComparer();
-			ObjectDelta<Customer> result = comparer.Compare(first, second);
-
+			ObjectDelta<Customer> result = ObjectComparer.Compare(first, second);
 			Console.WriteLine(result);
 		}
 	}

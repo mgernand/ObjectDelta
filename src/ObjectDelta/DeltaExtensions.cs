@@ -2,13 +2,22 @@
 {
 	using JetBrains.Annotations;
 
+	/// <summary>
+	///     Extensions for object types.
+	/// </summary>
 	[PublicAPI]
 	public static class DeltaExtensions
 	{
+		/// <summary>
+		///     Compares the given instances and creates the delta between them.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="oldObject"></param>
+		/// <param name="newObject"></param>
+		/// <returns></returns>
 		public static ObjectDelta<T> CompareTo<T>(this T oldObject, T newObject) where T : class
 		{
-			ObjectComparer comparer = new ObjectComparer();
-			return comparer.Compare(oldObject, newObject);
+			return ObjectComparer.Compare(oldObject, newObject);
 		}
 	}
 }

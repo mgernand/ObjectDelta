@@ -1,33 +1,44 @@
 ﻿namespace ConsoleApp1
 {
 	using System;
+	using ObjectDelta;
 
 	internal static class Program
 	{
 		public static void Main(string[] args)
 		{
-			//Customer customer = new Customer
-			//{
-			//	FirstName = "Sherlock",
-			//	LastName = "Holmes",
-			//	Address = new Address
-			//	{
-			//		Street = "Baker Street",
-			//		Number = "221b",
-			//		Zip = "NW1",
-			//		City = "London",
-			//		Country = "England"
-			//	},
-			//	Tags = new string[] { "detective", "addict" }
-			//};
+			Customer first = new Customer
+			{
+				FirstName = "Sherlock",
+				LastName = "Olmes",
+				Address = new Address
+				{
+					Street = "Baker Street",
+					Number = "900",
+					Zip = "NW1",
+					City = "London",
+					Country = "England"
+				},
+				Tags = new string[] { "detective", "addict" }
+			};
 
-			//IStructureBuilder builder = new StructureBuilder();
-			//Structure structure = builder.CreateStructure(customer);
+			Customer second = new Customer
+			{
+				FirstName = "Sherlock",
+				LastName = "Holmes",
+				Address = new Address
+				{
+					Street = "Baker Street",
+					Number = "221b",
+					Zip = "NW1",
+					City = "London",
+					Country = "England"
+				},
+				Tags = new string[] { "detective", "genius", "addict" }
+			};
 
-			//Console.WriteLine(structure.Schema);
-			//Console.WriteLine();
-			//Console.WriteLine(structure.Indices);
-			Console.WriteLine();
+			ObjectDelta<Customer> result = ObjectComparer.Compare(first, second);
+			Console.WriteLine(result);
 		}
 	}
 }
