@@ -2,6 +2,7 @@
 {
 	using System.Collections.Generic;
 	using System.Linq;
+	using Fluxera.Guards;
 	using JetBrains.Annotations;
 	using ObjectStructure;
 
@@ -14,18 +15,35 @@
 		/// <summary>
 		///     Compares the given instances and creates the delta between them.
 		/// </summary>
+		/// <param name="firstObject"></param>
+		/// <param name="secondObject"></param>
+		/// <returns></returns>
+		public static ObjectDelta Compare(object firstObject, object secondObject)
+		{
+			ObjectDelta<object> objectDelta = Compare<object>(firstObject, secondObject);
+			return new ObjectDelta(firstObject.GetType(), objectDelta.OldObject, objectDelta.NewObject, objectDelta.PropertyDeltas);
+		}
+
+		/// <summary>
+		///     Compares the given instances and creates the delta between them.
+		/// </summary>
 		/// <typeparam name="T"></typeparam>
 		/// <param name="firstObject"></param>
 		/// <param name="secondObject"></param>
 		/// <returns></returns>
 		public static ObjectDelta<T> Compare<T>(T firstObject, T secondObject) where T : class
 		{
+			Guard.Against.Null(firstObject, nameof(firstObject));
+			Guard.Against.Null(secondObject, nameof(secondObject));
+
 			IStructureBuilder builder = new StructureBuilder();
 
 			Structure firstObjectStructure = builder.CreateStructure(firstObject);
 			Structure secondObjectStructure = builder.CreateStructure(secondObject);
 
-			IList<PropertyDelta> propertyDeltas = firstObjectStructure.Indices
+			IList<PropertyDelta> nulledComplexDeltas = new List<PropertyDelta>();
+
+			IEnumerable<PropertyDelta> propertyDeltas = firstObjectStructure.Indices
 				.Zip(secondObjectStructure.Indices, (first, second) =>
 				{
 					if((first.Value == null) && (second.Value == null))
@@ -48,15 +66,32 @@
 						return null;
 					}
 
-					return new PropertyDelta(
-						first.Type,
-						first.Name,
-						first.Path,
-						first.Value,
-						second.Value);
+					PropertyDelta propertyDelta = new PropertyDelta(first.Type, first.Name, first.Path, first.Value, second.Value);
+
+					// A complex type property has been set to null.
+					if(first.IsComplex && (first.Value != null) && (second.Value == null))
+					{
+						nulledComplexDeltas.Add(propertyDelta);
+					}
+
+					// A nested property of a complex type property has been set to null.
+					foreach(PropertyDelta nulledPropertyDelta in nulledComplexDeltas)
+					{
+						if(propertyDelta.Path.StartsWith($"{nulledPropertyDelta.Name}."))
+						{
+							return null;
+						}
+					}
+
+					return propertyDelta;
 				})
 				.Where(propertyDelta => propertyDelta != null)
 				.ToList();
+
+			foreach(PropertyDelta propertyDelta in nulledComplexDeltas)
+			{
+				propertyDeltas = propertyDeltas.Where(x => !x.Path.StartsWith($"{propertyDelta.Name}."));
+			}
 
 			return new ObjectDelta<T>(firstObject, secondObject, propertyDeltas.ToArray());
 		}

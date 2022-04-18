@@ -19,5 +19,16 @@
 		{
 			return ObjectComparer.Compare(oldObject, newObject);
 		}
+
+		/// <summary>
+		///     Compares the given instances and creates the delta between them.
+		/// </summary>
+		/// <param name="oldObject"></param>
+		/// <param name="newObject"></param>
+		/// <returns></returns>
+		public static ObjectDelta CompareTo(this object oldObject, object newObject)
+		{
+			return ObjectComparer.Compare(oldObject, newObject);
+		}
 	}
 }
