@@ -74,11 +74,11 @@
 		}
 	}
 
-	/// <summary>
-	///     Provides the delta of two instances of the same type <see cref="T" />.
-	/// </summary>
-	/// <typeparam name="T"></typeparam>
-	[PublicAPI]
+    /// <summary>
+    ///     Provides the delta of two instances of the same type <typeparamref name="T" />.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    [PublicAPI]
 	[DebuggerDisplay("Type={Type.Name}, ChangeCount={PropertyDeltas.Length}")]
 	public sealed class ObjectDelta<T>
 	{
