@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netstandard2.1</TargetFramework>
+		<TargetFramework>net7.0</TargetFramework>
 		<LangVersion>latest</LangVersion>
 		<Nullable>disable</Nullable>
 		<ImplicitUsings>disable</ImplicitUsings>
@@ -11,9 +11,9 @@
 	<PropertyGroup>
 		<IncludeSymbols>false</IncludeSymbols>
 		<Copyright>Copyright © 2022 Matthias Gernand. All rights reserved.</Copyright>
-		<Version>1.0.2</Version>
-		<AssemblyVersion>1.0.2</AssemblyVersion>
-		<FileVersion>1.0.2</FileVersion>
+		<Version>2.0.0</Version>
+		<AssemblyVersion>2.0.0</AssemblyVersion>
+		<FileVersion>2.0.0</FileVersion>
 		<Authors>Matthias Gernand</Authors>
 		<Description>A libary that creates a delta of two object instaces.</Description>
 		<NeutralLanguage>en</NeutralLanguage>
@@ -39,10 +39,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Fluxera.Guards" Version="6.1.0" />
-		<PackageReference Include="Fluxera.Utilities" Version="6.1.1" />
-		<PackageReference Include="JetBrains.Annotations" Version="2022.1.0" />
-		<PackageReference Include="ObjectStructure" Version="1.0.2" />
+		<PackageReference Include="Fluxera.Guards" Version="7.0.3" />
+		<PackageReference Include="Fluxera.Utilities" Version="7.0.4" />
+		<PackageReference Include="JetBrains.Annotations" Version="2022.3.1" />
+		<PackageReference Include="ObjectStructure" Version="2.0.0" />
 	</ItemGroup>
 
 </Project>
