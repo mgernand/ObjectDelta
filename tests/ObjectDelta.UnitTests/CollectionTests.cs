@@ -202,5 +202,31 @@
 			result.PropertyDeltas[0].OldValue.Should().Be(expectedOldValue);
 			result.PropertyDeltas[0].NewValue.Should().Be(expectedNewValue);
 		}
+
+		[Test]
+		public void ShouldDetectAddedElement()
+		{
+			Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+			Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
+
+			ArrayModel first = new ArrayModel
+			{
+				Property = Array.Empty<string>()
+			};
+
+			ArrayModel second = new ArrayModel
+			{
+				Property = new string[] { "George" }
+			};
+
+			ObjectDelta<ArrayModel> result = first.CompareTo(second);
+			Console.WriteLine(result);
+
+			result.Should().NotBeNull();
+			result.HasChanges.Should().BeTrue();
+			result.PropertyDeltas.Should().HaveCount(2);
+			result.PropertyDeltas[0].Name.Should().Be("Property");
+			result.PropertyDeltas[0].Path.Should().Be("Property");
+		}
 	}
 }
