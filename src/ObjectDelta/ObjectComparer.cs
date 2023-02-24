@@ -33,8 +33,8 @@
 		/// <returns></returns>
 		public static ObjectDelta<T> Compare<T>(T firstObject, T secondObject) where T : class
 		{
-			Guard.Against.Null(firstObject, nameof(firstObject));
-			Guard.Against.Null(secondObject, nameof(secondObject));
+			Guard.Against.Null(firstObject);
+			Guard.Against.Null(secondObject);
 
 			IStructureBuilder builder = new StructureBuilder();
 

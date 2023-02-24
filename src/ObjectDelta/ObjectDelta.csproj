@@ -11,9 +11,9 @@
 	<PropertyGroup>
 		<IncludeSymbols>false</IncludeSymbols>
 		<Copyright>Copyright © 2022 Matthias Gernand. All rights reserved.</Copyright>
-		<Version>2.0.0</Version>
-		<AssemblyVersion>2.0.0</AssemblyVersion>
-		<FileVersion>2.0.0</FileVersion>
+		<Version>2.1.0</Version>
+		<AssemblyVersion>2.1.0</AssemblyVersion>
+		<FileVersion>2.1.0</FileVersion>
 		<Authors>Matthias Gernand</Authors>
 		<Description>A libary that creates a delta of two object instaces.</Description>
 		<NeutralLanguage>en</NeutralLanguage>

@@ -25,7 +25,7 @@ Customer first = new Customer
 		City = "London",
 		Country = "England"
 	},
-	Tags = new string[] { "detective", "smart" }
+	Tags = new string[] { "detective", "addict" }
 };
 
 Customer second = new Customer
@@ -40,7 +40,7 @@ Customer second = new Customer
 		City = "London",
 		Country = "England"
 	},
-	Tags = new string[] { "detective", "smart", "addict" }
+	Tags = new string[] { "detective", "genius", "addict" }
 };
 
 ObjectDelta<Customer> result = ObjectComparer.Compare(first, second);
@@ -57,6 +57,7 @@ Address (ConsoleApp1.Address => ConsoleApp1.Address)
 Address.Number (900 => 221b)
 Tags (System.String[] => System.String[])
 Tags[1] (addict => genius)
+Tags[2] (null => addict)
 ```
 
 ## References
