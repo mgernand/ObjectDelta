@@ -1,8 +1,8 @@
 ﻿namespace ObjectDelta
 {
+	using System;
 	using System.Collections.Generic;
 	using System.Linq;
-	using Fluxera.Guards;
 	using JetBrains.Annotations;
 	using ObjectStructure;
 
@@ -33,8 +33,8 @@
 		/// <returns></returns>
 		public static ObjectDelta<T> Compare<T>(T firstObject, T secondObject) where T : class
 		{
-			Guard.Against.Null(firstObject);
-			Guard.Against.Null(secondObject);
+			ArgumentNullException.ThrowIfNull(firstObject);
+			ArgumentNullException.ThrowIfNull(secondObject);
 
 			IStructureBuilder builder = new StructureBuilder();
 
@@ -46,7 +46,7 @@
 			IEnumerable<PropertyDelta> propertyDeltas = firstObjectStructure.Indices
 				.Zip(secondObjectStructure.Indices, (first, second) =>
 				{
-					if((first.Value == null) && (second.Value == null))
+					if(first.Value == null && second.Value == null)
 					{
 						return null;
 					}
@@ -69,7 +69,7 @@
 					PropertyDelta propertyDelta = new PropertyDelta(first.Type, first.Name, first.Path, first.Value, second.Value);
 
 					// A complex type property has been set to null.
-					if(first.IsComplex && (first.Value != null) && (second.Value == null))
+					if(first.IsComplex && first.Value != null && second.Value == null)
 					{
 						nulledComplexDeltas.Add(propertyDelta);
 					}
