@@ -40,7 +40,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
-		<PackageReference Include="ObjectStructure" Version="2.1.0" />
+		<PackageReference Include="ObjectStructure" Version="8.0.0" />
 	</ItemGroup>
 
 </Project>

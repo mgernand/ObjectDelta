@@ -4,7 +4,6 @@
 	using System.Diagnostics;
 	using System.Linq;
 	using System.Text;
-	using Fluxera.Guards;
 	using JetBrains.Annotations;
 
 	/// <summary>
@@ -23,9 +22,9 @@
 		/// <param name="propertyDeltas"></param>
 		internal ObjectDelta(Type type, object oldObject, object newObject, PropertyDelta[] propertyDeltas)
 		{
-			Guard.Against.Null(type, nameof(type));
-			Guard.Against.Null(oldObject, nameof(oldObject));
-			Guard.Against.Null(newObject, nameof(newObject));
+			ArgumentNullException.ThrowIfNull(type);
+			ArgumentNullException.ThrowIfNull(oldObject);
+			ArgumentNullException.ThrowIfNull(newObject);
 
 			propertyDeltas ??= Array.Empty<PropertyDelta>();
 
@@ -58,7 +57,7 @@
 		/// <summary>
 		///     Flag, indicating if the comparison found changes.
 		/// </summary>
-		public bool HasChanges => this.PropertyDeltas.Any();
+		public bool HasChanges => this.PropertyDeltas.Length != 0;
 
 		/// <inheritdoc />
 		public override string ToString()
@@ -90,8 +89,8 @@
 		/// <param name="propertyDeltas"></param>
 		internal ObjectDelta(T oldObject, T newObject, PropertyDelta[] propertyDeltas)
 		{
-			Guard.Against.Null(oldObject, nameof(oldObject));
-			Guard.Against.Null(newObject, nameof(newObject));
+			ArgumentNullException.ThrowIfNull(oldObject);
+			ArgumentNullException.ThrowIfNull(newObject);
 
 			propertyDeltas ??= Array.Empty<PropertyDelta>();
 
@@ -124,7 +123,7 @@
 		/// <summary>
 		///     Flag, indicating if the comparison found changes.
 		/// </summary>
-		public bool HasChanges => this.PropertyDeltas.Any();
+		public bool HasChanges => this.PropertyDeltas.Length != 0;
 
 		/// <inheritdoc />
 		public override string ToString()

@@ -2,7 +2,6 @@
 {
 	using System;
 	using System.Diagnostics;
-	using Fluxera.Guards;
 	using JetBrains.Annotations;
 
 	/// <summary>
@@ -21,9 +20,13 @@
 		/// <param name="newValue"></param>
 		internal PropertyDelta(Type dataType, string name, string path, object oldValue, object newValue)
 		{
-			this.Type = Guard.Against.Null(dataType, nameof(dataType));
-			this.Name = Guard.Against.NullOrWhiteSpace(name, nameof(name));
-			this.Path = Guard.Against.NullOrWhiteSpace(path, nameof(path));
+			ArgumentNullException.ThrowIfNull(dataType);
+			ArgumentException.ThrowIfNullOrWhiteSpace(name);
+			ArgumentException.ThrowIfNullOrWhiteSpace(path);
+
+			this.Type = dataType;
+			this.Name = name;
+			this.Path = path;
 
 			this.OldValue = oldValue;
 			this.NewValue = newValue;
@@ -57,7 +60,7 @@
 		/// <inheritdoc />
 		public override string ToString()
 		{
-			return @$"{this.Path} ({GetValueDisplayString(this.OldValue)} => {GetValueDisplayString(this.NewValue)})";
+			return $"{this.Path} ({GetValueDisplayString(this.OldValue)} => {GetValueDisplayString(this.NewValue)})";
 		}
 
 		private static string GetValueDisplayString(object obj)
