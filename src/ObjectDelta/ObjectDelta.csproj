@@ -11,9 +11,9 @@
 	<PropertyGroup>
 		<IncludeSymbols>false</IncludeSymbols>
 		<Copyright>Copyright © 2022-2023 Matthias Gernand. All rights reserved.</Copyright>
-		<Version>8.0.0</Version>
-		<AssemblyVersion>8.0.0</AssemblyVersion>
-		<FileVersion>8.0.0</FileVersion>
+		<Version>8.0.1</Version>
+		<AssemblyVersion>8.0.1</AssemblyVersion>
+		<FileVersion>8.0.1</FileVersion>
 		<Authors>Matthias Gernand</Authors>
 		<Description>A libary that creates a delta of two object instaces.</Description>
 		<NeutralLanguage>en</NeutralLanguage>
@@ -39,8 +39,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<InternalsVisibleTo Include="ObjectDelta.UnitTests" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
-		<PackageReference Include="ObjectStructure" Version="8.0.0" />
 	</ItemGroup>
 
 </Project>

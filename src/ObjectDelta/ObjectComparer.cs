@@ -3,8 +3,8 @@
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
+	using global::ObjectDelta.Structure;
 	using JetBrains.Annotations;
-	using ObjectStructure;
 
 	/// <summary>
 	///     A comparer that creates the delta between to instances.
@@ -38,8 +38,8 @@
 
 			IStructureBuilder builder = new StructureBuilder();
 
-			Structure firstObjectStructure = builder.CreateStructure(firstObject);
-			Structure secondObjectStructure = builder.CreateStructure(secondObject);
+			Structure.Structure firstObjectStructure = builder.CreateStructure(firstObject);
+			Structure.Structure secondObjectStructure = builder.CreateStructure(secondObject);
 
 			IList<PropertyDelta> nulledComplexDeltas = new List<PropertyDelta>();
 
