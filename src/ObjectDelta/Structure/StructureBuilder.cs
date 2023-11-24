@@ -1,6 +1,7 @@
 ﻿namespace ObjectDelta.Structure
 {
 	using System;
+	using global::ObjectDelta.Utilities;
 	using JetBrains.Annotations;
 
 	/// <inheritdoc />
@@ -30,7 +31,7 @@
 		/// <inheritdoc />
 		public Structure CreateStructure<T>(T item)
 		{
-			ArgumentNullException.ThrowIfNull(item, nameof(item));
+			Guard.ThrowIfNull(item, nameof(item));
 
 			Type type = typeof(T);
 			if(type == typeof(Type) || type.IsGenericType || type.IsGenericTypeDefinition)

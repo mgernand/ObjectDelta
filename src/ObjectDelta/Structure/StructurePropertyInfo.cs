@@ -1,6 +1,7 @@
 ﻿namespace ObjectDelta.Structure
 {
 	using System;
+	using global::ObjectDelta.Utilities;
 	using JetBrains.Annotations;
 
 	/// <summary>
@@ -18,9 +19,9 @@
 		/// <param name="parent"></param>
 		internal StructurePropertyInfo(string name, Type type, Attribute[] attributes, StructureProperty parent = null)
 		{
-			//ArgumentException.ThrowIfNullOrEmpty(name, nameof(name));
-			//ArgumentNullException.ThrowIfNull(type, nameof(type));
-			//ArgumentNullException.ThrowIfNull(attributes, nameof(attributes));
+			Guard.ThrowIfNullOrWhiteSpace(name);
+			Guard.ThrowIfNull(type);
+			Guard.ThrowIfNull(attributes);
 
 			this.Name = name;
 			this.Type = type;

@@ -2,6 +2,7 @@
 {
 	using System;
 	using System.Diagnostics;
+	using global::ObjectDelta.Utilities;
 	using JetBrains.Annotations;
 
 	/// <summary>
@@ -20,9 +21,9 @@
 		/// <param name="newValue"></param>
 		internal PropertyDelta(Type dataType, string name, string path, object oldValue, object newValue)
 		{
-			ArgumentNullException.ThrowIfNull(dataType);
-			ArgumentException.ThrowIfNullOrWhiteSpace(name);
-			ArgumentException.ThrowIfNullOrWhiteSpace(path);
+			Guard.ThrowIfNull(dataType);
+			Guard.ThrowIfNullOrWhiteSpace(name);
+			Guard.ThrowIfNullOrWhiteSpace(path);
 
 			this.Type = dataType;
 			this.Name = name;

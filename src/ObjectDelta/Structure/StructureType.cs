@@ -2,6 +2,7 @@
 {
 	using System;
 	using System.Text;
+	using global::ObjectDelta.Utilities;
 	using JetBrains.Annotations;
 
 	/// <summary>
@@ -17,7 +18,7 @@
 		/// <param name="properties"></param>
 		internal StructureType(Type type, StructureProperty[] properties)
 		{
-			ArgumentNullException.ThrowIfNull(type, nameof(type));
+			Guard.ThrowIfNull(type);
 
 			this.Type = type;
 			this.Name = type.Name;

@@ -3,6 +3,7 @@
 	using System;
 	using System.Diagnostics;
 	using System.Text;
+	using global::ObjectDelta.Utilities;
 	using JetBrains.Annotations;
 
 	/// <summary>
@@ -21,9 +22,9 @@
 		/// <param name="propertyDeltas"></param>
 		internal ObjectDelta(Type type, object oldObject, object newObject, PropertyDelta[] propertyDeltas)
 		{
-			ArgumentNullException.ThrowIfNull(type);
-			ArgumentNullException.ThrowIfNull(oldObject);
-			ArgumentNullException.ThrowIfNull(newObject);
+			Guard.ThrowIfNull(type);
+			Guard.ThrowIfNull(oldObject);
+			Guard.ThrowIfNull(newObject);
 
 			propertyDeltas ??= Array.Empty<PropertyDelta>();
 

@@ -1,5 +1,6 @@
 ﻿namespace ObjectDelta.Structure
 {
+	using global::ObjectDelta.Utilities;
 	using JetBrains.Annotations;
 
 	/// <summary>
@@ -15,7 +16,7 @@
 		/// <param name="value"></param>
 		internal StructureIndexValue(string path, object value)
 		{
-			//ArgumentException.ThrowIfNullOrEmpty(path, nameof(path));
+			Guard.ThrowIfNullOrWhiteSpace(path);
 
 			this.Path = path;
 			this.Value = value;

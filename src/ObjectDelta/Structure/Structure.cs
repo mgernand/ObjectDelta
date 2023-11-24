@@ -1,6 +1,6 @@
 ﻿namespace ObjectDelta.Structure
 {
-	using System;
+	using global::ObjectDelta.Utilities;
 	using JetBrains.Annotations;
 
 	/// <summary>
@@ -12,7 +12,7 @@
 	{
 		internal Structure(StructureSchema schema, StructureIndices indices = null)
 		{
-			ArgumentNullException.ThrowIfNull(schema, nameof(schema));
+			Guard.ThrowIfNull(schema, nameof(schema));
 
 			this.Schema = schema;
 			this.Indices = indices ?? new StructureIndices();

@@ -4,6 +4,7 @@
 	using System.Collections.Generic;
 	using System.Linq;
 	using global::ObjectDelta.Structure;
+	using global::ObjectDelta.Utilities;
 	using JetBrains.Annotations;
 
 	/// <summary>
@@ -33,8 +34,8 @@
 		/// <returns></returns>
 		public static ObjectDelta<T> Compare<T>(T firstObject, T secondObject) where T : class
 		{
-			ArgumentNullException.ThrowIfNull(firstObject);
-			ArgumentNullException.ThrowIfNull(secondObject);
+			Guard.ThrowIfNull(firstObject);
+			Guard.ThrowIfNull(secondObject);
 
 			IStructureBuilder builder = new StructureBuilder();
 

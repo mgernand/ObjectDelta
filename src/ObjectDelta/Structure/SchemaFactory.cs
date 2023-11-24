@@ -3,6 +3,7 @@
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
+	using global::ObjectDelta.Utilities;
 	using JetBrains.Annotations;
 
 	/// <inheritdoc />
@@ -18,7 +19,7 @@
 		/// <inheritdoc />
 		public StructureSchema CreateSchema(StructureType structureType)
 		{
-			ArgumentNullException.ThrowIfNull(structureType, nameof(structureType));
+			Guard.ThrowIfNull(structureType, nameof(structureType));
 
 			if(!schemaCache.TryGetValue(structureType.Type, out StructureSchema structureSchema))
 			{

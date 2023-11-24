@@ -2,6 +2,7 @@
 {
 	using System;
 	using global::ObjectDelta.Structure.Reflection;
+	using global::ObjectDelta.Utilities;
 	using JetBrains.Annotations;
 
 	/// <summary>
@@ -19,9 +20,9 @@
 		/// <param name="value"></param>
 		internal StructureIndex(string name, string path, Type type, object value)
 		{
-			//ArgumentException.ThrowIfNullOrEmpty(name, nameof(name));
-			//ArgumentException.ThrowIfNullOrEmpty(path, nameof(path));
-			//ArgumentNullException.ThrowIfNull(type, nameof(type));
+			Guard.ThrowIfNullOrWhiteSpace(name);
+			Guard.ThrowIfNullOrWhiteSpace(path);
+			Guard.ThrowIfNull(type);
 
 			this.Name = name;
 			this.Path = path;

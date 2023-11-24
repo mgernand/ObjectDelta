@@ -1,5 +1,6 @@
 ﻿namespace ObjectDelta.Structure
 {
+	using global::ObjectDelta.Utilities;
 	using System;
 	using System.Collections;
 	using System.Collections.Generic;
@@ -16,7 +17,7 @@
 
 		internal IndexAccessor(StructureProperty property)
 		{
-			ArgumentNullException.ThrowIfNull(property, nameof(property));
+			Guard.ThrowIfNull(property, nameof(property));
 
 			this.property = property;
 			this.callStack = StructurePropertyCallStack.Create(property);

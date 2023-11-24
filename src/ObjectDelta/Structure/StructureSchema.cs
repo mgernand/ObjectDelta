@@ -1,6 +1,7 @@
 ﻿namespace ObjectDelta.Structure
 {
 	using System;
+	using global::ObjectDelta.Utilities;
 	using JetBrains.Annotations;
 
 	/// <summary>
@@ -16,7 +17,7 @@
 		/// <param name="indexAccessors"></param>
 		internal StructureSchema(StructureType structureType, IndexAccessor[] indexAccessors)
 		{
-			ArgumentNullException.ThrowIfNull(structureType, nameof(structureType));
+			Guard.ThrowIfNull(structureType);
 
 			this.StructureType = structureType;
 			this.IndexAccessors = indexAccessors ?? Array.Empty<IndexAccessor>();
