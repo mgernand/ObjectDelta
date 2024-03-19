@@ -2,29 +2,6 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
-		<LangVersion>latest</LangVersion>
-		<Nullable>disable</Nullable>
-		<ImplicitUsings>disable</ImplicitUsings>
-		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-	</PropertyGroup>
-
-	<PropertyGroup>
-		<IncludeSymbols>false</IncludeSymbols>
-		<Copyright>Copyright © 2022-2023 Matthias Gernand. All rights reserved.</Copyright>
-		<Version>8.0.1</Version>
-		<AssemblyVersion>8.0.1</AssemblyVersion>
-		<FileVersion>8.0.1</FileVersion>
-		<Authors>Matthias Gernand</Authors>
-		<Description>A libary that creates a delta of two object instaces.</Description>
-		<NeutralLanguage>en</NeutralLanguage>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<PackageProjectUrl>https://github.com/mgernand/ObjectDelta</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/mgernand/ObjectDelta</RepositoryUrl>
-		<RepositoryType>git</RepositoryType>
-		<PackageTags>object;delta;diff;difference</PackageTags>
-		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageIcon>icon.png</PackageIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
