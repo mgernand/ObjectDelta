@@ -14,7 +14,7 @@
 		<AssemblyName>$(MSBuildProjectName)</AssemblyName>
 		<RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
 		<PackageId>$(AssemblyName)</PackageId>
-		<PackageOutputPath>..\..\package-output</PackageOutputPath>
+		<PackageOutputPath>..\..\package-output\$(Configuration)</PackageOutputPath>
 		<IncludeSymbols>false</IncludeSymbols>
 		<Authors>Matthias Gernand</Authors>
 		<Description>A libary that creates a delta of two object instaces.</Description>
@@ -29,7 +29,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<VersionPrefix>8.0.5</VersionPrefix>
+		<VersionPrefix>9.0.0</VersionPrefix>
 		<VersionSuffix></VersionSuffix>
 		<FileVersion>$(VersionPrefix)</FileVersion>
 		<AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
