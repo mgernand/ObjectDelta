@@ -1,21 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net7.0;net8.0;net9.0</TargetFrameworks>
+		<TargetFrameworks>net8.0;net9.0</TargetFrameworks>
 		<Nullable>disable</Nullable>
 		<IsPackable>false</IsPackable>
 		<IsTestProject>true</IsTestProject>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="FluentAssertions" Version="6.12.1" />
-		<PackageReference Include="Fluxera.Enumeration" Version="8.2.3" />
-		<PackageReference Include="Fluxera.Utilities" Version="8.2.2" />
-		<PackageReference Include="Fluxera.ValueObject" Version="8.2.3" />
-		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
-		<PackageReference Include="NUnit" Version="4.2.2" />
-		<PackageReference Include="NUnit3TestAdapter" Version="4.6.0" />
-		<PackageReference Include="coverlet.collector" Version="6.0.2">
+		<PackageReference Include="FluentAssertions" Version="8.1.1" />
+		<PackageReference Include="Fluxera.Enumeration" Version="9.0.2" />
+		<PackageReference Include="Fluxera.Utilities" Version="9.0.1" />
+		<PackageReference Include="Fluxera.ValueObject" Version="9.0.2" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
+		<PackageReference Include="NUnit" Version="4.3.2" />
+		<PackageReference Include="NUnit3TestAdapter" Version="5.0.0" />
+		<PackageReference Include="coverlet.collector" Version="6.0.4">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
